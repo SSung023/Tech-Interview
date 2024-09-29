@@ -6,7 +6,7 @@
 각 문항에 대한 답변 뿐만 아니라, 하위 문항에 대해서도 답변을 해보고 공부할 목적으로 fork 했습니다.  
 우선적으로 공부할 주제는 `02-OPERATING SYSTEM`, `03-NETWORK`, `04-DATABASE`, `05-ETC`, `07-JAVA SPRING`입니다.
 
-밑에 보이는 Contents 항목에는 학습한 내용을 
+밑에 보이는 Contents 항목에는 학습한 내용에 대한 링크가 되어 있습니다.
 
 ### Contents
 #### 02-OPERATING SYSTEM
@@ -18,8 +18,8 @@
 [2. HTTP 응답코드에 대해 설명해주세요.]()
 
 #### 04-DATABASE
-[1. Key(기본키, 후보키, 슈퍼키 등등...)에 대해 설명해주세요.]()  
-[2. RDB와 NoSQL의 차이에 대해 설명해주세요.]()
+[1. Key(기본키, 후보키, 슈퍼키 등등...)에 대해 설명해주세요.](/04-DATABASE/01-RDB_Keys.md)  
+[2. RDB와 NoSQL의 차이에 대해 설명해주세요.](/04-DATABASE/02-RDB_vs_NoSQL.md)
 
 #### 05-ETC
 [1. 가상화가 무엇이고, 이것이 가상머신과 어떠한 차이가 있는지 설명해 주세요.]()  
