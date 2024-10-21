@@ -2,11 +2,42 @@
 
 <details>
   <summary><h3>1. JVM이 정확히 무엇이고, 어떤 기능을 하는지 설명해 주세요.</h3></summary>
+<details>
+<summary>자세히</summary>
+JVM은 Java Virtual Machine의 약자로, 자바 컴파일러에 의해 변환된 Java bytecode를 각 플랫폼에 맞는 기계어로 변환하는 역할을 합니다. <br>
+따라서 자바 개발자들은 어던 기계어로 컴파일이 되는지 전혀 신경쓰지 않아도 됩니다.
+</details>
+
 <ul>
 <li> 그럼, 자바 말고 다른 언어는 JVM 위에 올릴 수 없나요?</li>
+<details>
+<summary>자세히</summary>
+JVM은 java bytecode를 기계어로 변환하는 작업을 합니다. 따라서 컴파일러가 java bytecode로 변환하는 언어라면 JVM 위에 올릴 수 있습니다.
+</details>
+
 <li> 반대로 JVM 계열 언어를 일반적으로 컴파일해서 사용할 순 없나요?</li>
+<details>
+<summary>자세히</summary>
+JVM 계열 언어(Java, Kotlin, Scala...)를 Kotlin Native, GraalVM을 통해 네이티브 코드로 컴파일할 수 있습니다. <br>
+이를 통해 성능을 조금 더 올릴 수 있지만, JVM이 주는 장점인 플랫폼 독립성, 
+</details>
+
 <li> VM을 사용함으로써 얻을 수 있는 장점과 단점에 대해 설명해 주세요.</li>
+<details>
+<summary>자세히</summary>
+먼저 장점으로 "한 번 작성하면 어디서든 실행할 수 있다"는 점이 있습니다. <br>
+C, C++처럼 각 플랫폼에 맞는 기계어로 컴파일 되는 언어와 달리, JVM 계열 언어는 JVM이 플랫폼에 맞는 기계어로 변환해주기 때문에 JVM이 설치될 수 있는 모든 환경에서 실행이 가능합니다. <br>
+반면, JVM으로 인해 오버헤드가 발생할 수 있습니다. JVM은 bytecode로 작성된 Java 프로그램을 실행하기 위해 런타임에 JIT(Just-in-time) 컴파일을 실행합니다. <br>
+네이티브 언어로 컴파일된 프로그램에 비해 오버헤드가 발생할 수 있습니다. <br>
+또한 JVM은 Garbage collection을 통해 메모리 관리 기능을 제공하지만, 이로 인해 예측하기 힘든 성능 저하가 발생할 수 있습니다.
+</details>
+
 <li> JVM과 내부에서 실행되고 있는 프로그램은 부모 프로세스 - 자식 프로세스 관계를 갖고 있다고 봐도 무방한가요?</li>
+<details>
+<summary>자세히</summary>
+음! 모르겠따!
+</details>
+
 </ul>
 </details>
 
