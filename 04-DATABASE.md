@@ -2,21 +2,84 @@
 
 <details>
   <summary><h3>1. Key (기본키, 후보키, 슈퍼키 등등...) 에 대해 설명해 주세요.</h3></summary>
+<details>
+<summary>자세히</summary>
+Database의 Key는 테이블 간의 관계를 이루고, 데이터 무결성을 보장하기 위해 사용되는 태그 같은 존재입니다. <br>
+1. Super key: 테이블의 레코드를 고유하게 식별할 수 있는 하나 이상의 컬럼의 조합을 이야기합니다. <br>
+레코드를 고유하게 구별할 수 있기만 하면 되기 때문에 하나의 테이블에 여러 개의 Super key가 있을 수 있으며, 중복된 속성이 포함될 수 있습니다.<br>
+2. Candidate Key: Super key들 중에서 최소성을 만족하는, 즉, 조합들 중 하나라도 없어지면 레코드를 고유하게 식별할 수 없는 속성의 집합입니다. <br>
+하나의 테이블에 여러 개의 후보키가 존재할 수 있으며, 이들 중 PK로 선택될 수 있습니다.<br>
+3. PK: cancidate key들 중 선택된 키로서, PK를 통해 테이블 내의 레코드를 고유하게 식별할 수 있습니다. 테이블 당 하나만 존재하며, NULL을 허용하지 않습니다. <br>
+4. Alternate Key: candidate key들 중, PK로 선택되지 않은 키입니다. <br>
+5. Composite Key: 테이블에서 2개 이상의 속성을 조합하여 각 레코드를 식별할 수 있는 키를 이야기합니다. 
+각 속성을 보았을 때에는 해당 속성을 통해 레코드를 식별할 수 없지만, 속성의 조합을 통해 레코드를 고유하게 식별할 수 있습니다. <br>
+6. Unique key: unique 제약 조건이 붙은 속성으로서, 다른 레코드에 중복된 값이 들어가는 것을 방지할 수 있습니다. <br>
+7. FK: PK를 통해 다른 테이블 과의 관계를 만드는 키입니다. FK는 참조하려는 PK와 값이 일치해야 합니다. 이를 통해 테이블 간의 관계를 형성할 수 있습니다. <br>
+</details>
+
+
 <ul>
 <li> 기본키는 수정이 가능한가요?</li>
+<details>
+<summary>자세히</summary>
+변경하고자하는 값이 다른 레코드의 PK와 겹치지 않고, NULL이 아닌 경우 수정이 가능합니다.<br>
+하지만 PK의 수정은 왠만하면 권장하지 않습니다. <br>
+PK를 수정한 경우 해당 PK를 참조하던 FK들도 모두 업데이트해야하며, 이를 제대로 처리하지 않은 경우 데이터 무결성 문제가 발생할 수 있습니다. <br>
+또한 대부분의 데이터베이스는 PK에 index를 생성하며 물리적으로 정렬합니다. 대규모 테이블에서 PK 수정이 일어난다면 정렬을 다시 진행해야 하며, 이 과정에서 많은 리소스를 소모할 수 있습니다.
+</details>
+
 <li> 사실 MySQL의 경우, 기본키를 설정하지 않아도 테이블이 만들어집니다. 어떻게 이게 가능한 걸까요?</li>
+<details>
+<summary>자세히</summary>
+MySQL의 InnoDB의 경우 테이블을 생성할 때 PK가 없는 경우, 각 레코드를 구별하기 위해 "row ID"를 생성합니다. <br>
+PK가 없는 테이블에서도 MySQL은 "row ID"를 통해 각 레코드(행)을 식별할 수 있습니다.
+</details>
+
 <li> 외래키 값은 NULL이 들어올 수 있나요?</li>
+<details>
+<summary>자세히</summary>
+네 FK에 NULL이 들어갈 수 있습니다. NULL은 값이 없다는 의미도 있지만, "아직 값이 정해지지 않았다"라는 의미도 있습니다. <br>
+따라서 레코드를 추가했지만 다른 테이블과의 관계를 맺지 않았을 때, FK에 NULL이 들어갈 수 있습니다.
+</details>
+
 <li> 어떤 칼럼의 정의에 UNIQUE 키워드가 붙는다고 가정해 봅시다. 이 칼럼을 활용한 쿼리의 성능은 그렇지 않은 것과 비교해서 어떻게 다를까요?</li>
+<details>
+<summary>자세히</summary>
+unique constraint(제약 조건)이 붙은 속성의 경우 자동으로 인덱스가 생성됩니다. <br>
+따라서 unique 컬럼을 사용한 select 쿼리의 경우 인덱스가 없는 경우보다 빠릅니다. <br>
+반면, insert, update의 경우 unique 제약 조건으로 인해 중복을 허용하지 않아 중복 검사로 인해 오버헤드가 발생할 수 있습니다.
+</details>
+
 </ul>
 </details>
 
 
 <details>
   <summary><h3>2. RDB와 NoSQL의 차이에 대해 설명해 주세요.</h3></summary>
+<details>
+<summary>자세히</summary>
+
+</details>
+
 <ul>
 <li> NoSQL의 강점과, 약점이 무엇인가요?</li>
+<details>
+<summary>자세히</summary>
+
+</details>
+
 <li> RDB의 어떠한 특징 때문에 NoSQL에 비해 부하가 많이 걸릴 "수" 있을까요? (주의: 무조건 NoSQL이 RDB 보다 빠르다라고 생각하면 큰일 납니다!)</li>
+<details>
+<summary>자세히</summary>
+
+</details>
+
 <li> NoSQL을 활용한 경험이 있나요? 있다면, 왜 RDB를 선택하지 않고 해당 DB를 선택했는지 설명해 주세요.</li>
+<details>
+<summary>자세히</summary>
+
+</details>
+
 </ul>
 </details>
 
