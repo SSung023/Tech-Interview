@@ -2,13 +2,61 @@
 
 <details>
   <summary><h3>1. 시스템 콜이 무엇인지 설명해 주세요.</h3></summary>
+<details>
+<summary>답안</summary>
+시스템 콜이란 -> 운영체제(OS)와 사용자 프로그램 간에 `interface` 역할을 하는 함수  <br>
+사용자 프로그램이 파일 읽기/쓰기, 프로세스 생성과 같이 kernel의 기능을 사용하고자 할 때 system call을 호출
+</details>
 <ul>
 <li> 우리가 사용하는 시스템 콜의 예시를 들어주세요.</li>
+<details>
+<summary>자세히</summary>
+파일 열기, 읽기, 쓰기와 같은 open(), read(), write() <br>
+프로세스를 생성하거나, 새로운 프로그램을 실행할 때에도 system call을 호출합니다.
+</details>
+
 <li> 시스템 콜이, 운영체제에서 어떤 과정으로 실행되는지 설명해 주세요.</li>
+<details>
+<summary>자세히</summary>
+1. user mode에서 실행되고 있는 사용자 프로세스에서 필요에 의해 system call을 호출 <br>
+2. kernel에세 system call의 정보를 전달. <br>
+3. 이 때, 각 system call 별로 식별할 수 있는 고유번호가 있기 때문에, kernel은 고유 번호를 통해 알맞는 서비스 루틴 실행 가능.<br>
+kernel은 전달받은 system call에 알맞는 **서비스 루틴** 실행 <br>
+4. kernel이 서비스 루틴을 모두 실행한 후, user mode로 다시 반환
+</details>
+
 <li> 시스템 콜의 유형에 대해 설명해 주세요.</li>
+<details>
+<summary>자세히</summary>
+
+</details>
+
 <li> 운영체제의 Dual Mode 에 대해 설명해 주세요.</li>
+<details>
+<summary>자세히</summary>
+운영체제는 kernel mode와 User mode 두 개의 mode로 나누어져 있으며, 이를 Dual mode라고 한다. <br>
+kernel mode에서는 시스템에 영향을 줄 수 있는 명령(파일 관리, 프로세스 생성 등) privileged instruction(특권 명령)을 실행할 수 있으며, <br>
+user mode는 일반적인 사용자 프로그램 실행 시 사용되며, 시스템에 영향을 줄 수 있는 privileged instruction을 실행하지 못합니다.
+
+</details>
+
 <li> 왜 유저모드와 커널모드를 구분해야 하나요? </li>
+<details>
+<summary>자세히</summary>
+privileged instruction(특권 명령)을 무분별하게 호출하면 시스템에 영향을 줄 수 있기 때문에, <br>
+일반적으로 사용자 프로그램은 User mode에서 실행되며, 파일 조작, 프로세스 생성과 같이 시스템에 영향을 줄 수 있는 명령은 kernel mode로 변경해 실행할 수 있도록 합니다.<br>
+
+</details>
+
+
 <li> 서로 다른 시스템 콜을 어떻게 구분할 수 있을까요?</li>
+<details>
+<summary>자세히</summary>
+kernel 내부에 system call을 구분할 수 있는 고유 번호와 제어 루틴을 정의하여, system call이 호출되었을 때 해당 고유 번호에 해당하는 제어루틴을 실행합니다.
+</details>
+
+
+
 </ul>
 </details>
 
